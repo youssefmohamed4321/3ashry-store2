@@ -121,15 +121,19 @@ router.post(
                 return res.status(400).json({ message:"No image file provided" });
             }
 
-            const result = await cloudinary.uploader.upload(req.file.path, {
-                folder: "3ashry-store"
-            });
+            // No "folder" option here on purpose: some Cloudinary accounts
+            // (Dynamic Folder Mode) reject API uploads into a folder that
+            // doesn't already exist yet. Uploading to the root avoids that
+            // entirely. Assets can still be organized into folders later
+            // from the Cloudinary Media Library UI.
+            const result = await cloudinary.uploader.upload(req.file.path);
 
             fs.unlink(req.file.path, ()=>{});
 
             res.json({ url: result.secure_url });
         }catch(err){
-            res.status(500).json({ message:err.message });
+            console.error("Cloudinary upload error:", err.message || err);
+            res.status(500).json({ message: err.message || "Image upload failed" });
         }
     }
 );

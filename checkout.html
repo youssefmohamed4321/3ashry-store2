@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout | 3ASHRY STORE</title>
+<link rel="stylesheet" href="css/variables.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/animations.css">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+<header>
+<nav class="container">
+<a href="index.html" class="logo">
+3ASHRY STORE
+</a>
+</nav>
+</header>
+<section class="checkout-page">
+<div class="container checkout-grid">
+<!-- Billing -->
+<div class="billing">
+<h2>Billing Details</h2>
+<form id="checkoutForm">
+<input type="text"
+placeholder="Full Name"
+required>
+<input type="email"
+placeholder="Email"
+required>
+<input type="tel"
+placeholder="Phone Number"
+required>
+<input type="text"
+placeholder="Country"
+required>
+<input type="text"
+placeholder="City"
+required>
+<input type="text"
+placeholder="Street Address"
+required>
+<select required>
+<option>Cash On Delivery</option>
+<option>Credit Card</option>
+<option>PayPal</option>
+</select>
+<button class="btn btn-primary">
+Place Order
+</button>
+</form>
+</div>
+<!-- Summary -->
+<div class="order-summary">
+<h2>Your Order</h2>
+<div id="checkoutItems">
+</div>
+<div class="summary">
+<div>
+<span>Subtotal</span>
+<span id="checkoutSubtotal">
+0 EGP
+</span>
+</div>
+<div>
+<span>Shipping</span>
+<span>Free</span>
+</div>
+<div class="total">
+<span>Total</span>
+<span id="checkoutTotal">
+0 EGP
+</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<script src="js/config.js"></script>
+<script src="js/checkout.js"></script>
+</body>
+</html>

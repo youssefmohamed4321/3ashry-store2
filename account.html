@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>My Account | 3ASHRY STORE</title>
+<link rel="stylesheet" href="css/variables.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/animations.css">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+<header>
+<nav class="container">
+<a href="index.html" class="logo">
+3ASHRY STORE
+</a>
+<a href="index.html" class="btn">
+Continue Shopping
+</a>
+</nav>
+</header>
+<section class="login-page" style="min-height:calc(100vh - 80px);">
+<div class="login-box" style="max-width:480px;">
+<h1>
+My Account
+</h1>
+<p>
+View and update your details
+</p>
+<form id="accountForm">
+<div class="input-group">
+<i class="fa fa-user"></i>
+<input type="text" id="accountName" placeholder="Full Name">
+</div>
+<div class="input-group">
+<i class="fa fa-envelope"></i>
+<input type="email" id="accountEmail" placeholder="Email" disabled>
+</div>
+<div class="input-group">
+<i class="fa fa-phone"></i>
+<input type="tel" id="accountPhone" placeholder="Phone Number">
+</div>
+<div class="input-group">
+<i class="fa fa-location-dot"></i>
+<input type="text" id="accountAddress" placeholder="Address">
+</div>
+<button type="submit" class="btn btn-primary">
+Save Changes
+</button>
+</form>
+<p class="register-link">
+<a href="orders.html">View My Orders</a>
+</p>
+<button onclick="logout()" class="remove" style="margin-top:15px;width:100%;">
+Logout
+</button>
+</div>
+</section>
+<script src="js/config.js"></script>
+<script src="js/account.js"></script>
+</body>
+</html>

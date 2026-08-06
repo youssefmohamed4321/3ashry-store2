@@ -1,0 +1,20 @@
+{
+  "name": "3ashry-store",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "bcrypt": "^5",
+    "cloudinary": "^2",
+    "cors": "^2",
+    "dotenv": "^16",
+    "express": "^4",
+    "express-rate-limit": "^8.6.1",
+    "helmet": "^8.3.0",
+    "jsonwebtoken": "^9",
+    "mongoose": "^8",
+    "multer": "^2"
+  }
+}

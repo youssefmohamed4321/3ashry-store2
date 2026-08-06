@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "name": "Classic Crew Neck T-Shirt",
+    "team": "Urban Basics",
+    "price": 450,
+    "oldPrice": 650,
+    "rating": 5,
+    "category": "T-Shirts",
+    "size": ["S","M","L","XL"],
+    "image": "assets/images/tshirt-crew.jpg",
+    "badge": "NEW"
+  },
+  {
+    "id": 2,
+    "name": "Oxford Button-Down Shirt",
+    "team": "Northline",
+    "price": 850,
+    "oldPrice": 1100,
+    "rating": 5,
+    "category": "Shirts",
+    "size": ["S","M","L","XL"],
+    "image": "assets/images/shirt-oxford.jpg",
+    "badge": "HOT"
+  },
+  {
+    "id": 3,
+    "name": "Slim Fit Chino Pants",
+    "team": "Heritage Co.",
+    "price": 950,
+    "oldPrice": 1300,
+    "rating": 4,
+    "category": "Pants",
+    "size": ["30","32","34","36"],
+    "image": "assets/images/chino-pants.jpg",
+    "badge": "SALE"
+  },
+  {
+    "id": 4,
+    "name": "Pullover Hoodie",
+    "team": "Urban Basics",
+    "price": 1100,
+    "oldPrice": 1450,
+    "rating": 5,
+    "category": "Jackets & Hoodies",
+    "size": ["S","M","L","XL"],
+    "image": "assets/images/hoodie-pullover.jpg",
+    "badge": "NEW"
+  },
+  {
+    "id": 5,
+    "name": "Bomber Jacket",
+    "team": "Northline",
+    "price": 1800,
+    "oldPrice": 2400,
+    "rating": 5,
+    "category": "Jackets & Hoodies",
+    "size": ["S","M","L","XL"],
+    "image": "assets/images/jacket-bomber.jpg",
+    "badge": "HOT"
+  },
+  {
+    "id": 6,
+    "name": "Denim Jeans - Straight Fit",
+    "team": "Heritage Co.",
+    "price": 1050,
+    "oldPrice": 1400,
+    "rating": 4,
+    "category": "Pants",
+    "size": ["30","32","34","36"],
+    "image": "assets/images/jeans-straight.jpg",
+    "badge": "SALE"
+  },
+  {
+    "id": 7,
+    "name": "Canvas Low-Top Sneakers",
+    "team": "Urban Basics",
+    "price": 900,
+    "oldPrice": 1200,
+    "rating": 5,
+    "category": "Casual Shoes",
+    "size": ["40","41","42","43","44"],
+    "image": "assets/images/sneakers-canvas.jpg",
+    "badge": "NEW"
+  },
+  {
+    "id": 8,
+    "name": "Suede Desert Boots",
+    "team": "Heritage Co.",
+    "price": 1350,
+    "oldPrice": 1750,
+    "rating": 5,
+    "category": "Casual Shoes",
+    "size": ["40","41","42","43","44"],
+    "image": "assets/images/boots-desert.jpg",
+    "badge": "HOT"
+  }
+]

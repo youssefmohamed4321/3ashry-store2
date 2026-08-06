@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard</title>
+<link rel="stylesheet" href="css/variables.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/animations.css">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+<div class="dashboard" id="dashboardContent" style="display:none;">
+<!-- Sidebar -->
+<div class="sidebar">
+<h2>3ASHRY</h2>
+<ul>
+<li class="active">
+<i class="fa fa-home"></i>
+Dashboard
+</li>
+<li>
+<i class="fa fa-box"></i>
+Products
+</li>
+<li>
+<i class="fa fa-cart-shopping"></i>
+Orders
+</li>
+<li>
+<i class="fa fa-users"></i>
+Customers
+</li>
+<li>
+<i class="fa fa-chart-line"></i>
+Analytics
+</li>
+<li>
+<i class="fa fa-gear"></i>
+Settings
+</li>
+</ul>
+</div>
+<!-- Main -->
+<div class="main">
+<h1>
+Dashboard
+</h1>
+<div class="cards">
+<div class="card">
+<h2>Products</h2>
+<h1 id="productsCount">
+0
+</h1>
+</div>
+<div class="card">
+<h2>Orders</h2>
+<h1 id="ordersCount">
+0
+</h1>
+</div>
+<div class="card">
+<h2>Customers</h2>
+<h1 id="customersCount">
+0
+</h1>
+</div>
+<div class="card">
+<h2>Revenue</h2>
+<h1 id="revenueCount">
+0 EGP
+</h1>
+</div>
+</div>
+
+<h2>
+Products
+</h2>
+<button id="addProduct">
++ Add Product
+</button>
+<table>
+<thead>
+<tr>
+<th>Image</th>
+<th>Name</th>
+<th>Price</th>
+<th>Stock</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody id="tableBody">
+</tbody>
+</table>
+
+<input type="file" id="imageFileInput" accept="image/*" style="display:none;">
+
+<h2 style="margin-top:60px;">
+Orders
+</h2>
+<table>
+<thead>
+<tr>
+<th>Order ID</th>
+<th>Customer</th>
+<th>Total</th>
+<th>Payment</th>
+<th>Status</th>
+<th>Date</th>
+</tr>
+</thead>
+<tbody id="ordersTableBody">
+</tbody>
+</table>
+
+<h2 style="margin-top:60px;">
+Customers
+</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Email</th>
+<th>Phone</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody id="customersTableBody">
+</tbody>
+</table>
+
+</div>
+</div>
+<script src="js/config.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>

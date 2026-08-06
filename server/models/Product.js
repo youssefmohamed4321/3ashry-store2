@@ -1,0 +1,35 @@
+const mongoose = require("mongoose");
+const ProductSchema = new mongoose.Schema({
+    name:{
+        type:String,
+        required:true
+    },
+    description:String,
+    team:String,
+    badge:String,
+    price:{
+        type:Number,
+        required:true
+    },
+    oldPrice:Number,
+    stock:{
+        type:Number,
+        default:0
+    },
+    category:String,
+    images:[String],
+    sizes:[String],
+    colors:[String],
+    rating:{
+        type:Number,
+        default:5
+    },
+    reviews:[
+        {
+            user:String,
+            comment:String,
+            rating:Number
+        }
+    ]
+},{timestamps:true});
+module.exports=mongoose.model("Product",ProductSchema);

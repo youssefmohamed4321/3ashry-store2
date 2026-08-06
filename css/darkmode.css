@@ -1,0 +1,72 @@
+/*======================================
+        DARK MODE
+======================================*/
+
+body.dark{
+background:#12181a;
+color:#e8e8e8;
+}
+
+body.dark header{
+background:#1a2224;
+box-shadow:0 2px 15px rgba(0,0,0,.4);
+}
+
+body.dark .logo{
+color:var(--gold);
+}
+
+body.dark .nav-links a:hover{
+color:var(--gold);
+}
+
+body.dark .icon-btn{
+background:#232d2f;
+color:#e8e8e8;
+}
+
+body.dark .category-card,
+body.dark .product-card,
+body.dark .team-grid div,
+body.dark .feature,
+body.dark .review,
+body.dark .cart-item,
+body.dark .billing,
+body.dark .order-summary,
+body.dark .cart-summary,
+body.dark .login-box{
+background:#1a2224;
+color:#e8e8e8;
+border-color:#2a3436;
+}
+
+body.dark .product-info p,
+body.dark .review p,
+body.dark .gray{
+color:#aaa;
+}
+
+body.dark .categories,
+body.dark .featured,
+body.dark .features{
+background:#12181a;
+}
+
+body.dark .search-box input,
+body.dark .filter-bar select,
+body.dark .billing input,
+body.dark .billing select,
+body.dark .input-group input{
+background:#1a2224;
+color:#e8e8e8;
+border-color:#2a3436;
+}
+
+body.dark .modal-content{
+background:#1a2224;
+color:#e8e8e8;
+}
+
+body.dark #darkMode i::before{
+content:"\f185";
+}

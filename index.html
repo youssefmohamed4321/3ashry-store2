@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>3ASHRY STORE | Men's Casual Clothing</title>
+
+<meta name="description" content="Men's casual essentials — t-shirts, shirts, jeans, and jackets. Shop the newest 2026 collection.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Work+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/variables.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/animations.css">
+<link rel="stylesheet" href="css/darkmode.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+    <!-- Loading Screen -->
+
+    <div id="loader">
+
+        <div class="spinner"></div>
+
+    </div>
+
+    <!-- Top Bar -->
+
+    <div class="topbar">
+        <div class="container topbar-inner">
+            <div class="topbar-left">
+                <span><i class="fa-solid fa-phone"></i> 01000000000</span>
+                <span><i class="fa-solid fa-truck-fast"></i> Nationwide shipping across Egypt</span>
+            </div>
+            <div class="topbar-right">
+                <span>EGP</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+
+    <header>
+
+        <nav class="container">
+
+            <a href="#" class="logo">
+
+                3ASHRY STORE
+
+            </a>
+
+            <button class="categories-btn" id="categoriesBtn">
+                <i class="fa-solid fa-bars"></i>
+                All Categories
+            </button>
+
+            <div class="categories-menu" id="categoriesMenu">
+                <a href="#featured" onclick="jumpToCategory('T-Shirts')"><i class="fas fa-shirt"></i> T-Shirts</a>
+                <a href="#featured" onclick="jumpToCategory('Shirts')"><i class="fas fa-shirt"></i> Casual Shirts</a>
+                <a href="#featured" onclick="jumpToCategory('Pants')"><i class="fas fa-person-running"></i> Jeans &amp; Pants</a>
+                <a href="#featured" onclick="jumpToCategory('Jackets & Hoodies')"><i class="fas fa-vest"></i> Jackets &amp; Hoodies</a>
+                <a href="#featured" onclick="jumpToCategory('Casual Shoes')"><i class="fas fa-shoe-prints"></i> Casual Shoes</a>
+                <a href="#featured" onclick="jumpToCategory('Accessories')"><i class="fas fa-socks"></i> Accessories</a>
+            </div>
+
+            <ul class="nav-links">
+
+                <li><a href="#">Home</a></li>
+
+                <li><a href="#categories">Categories</a></li>
+
+                <li><a href="#featured">Featured</a></li>
+
+                <li><a href="#teams">Teams</a></li>
+
+                <li><a href="#reviews">Reviews</a></li>
+
+                <li><a href="#contact">Contact</a></li>
+
+            </ul>
+
+            <div class="nav-icons">
+
+                <a href="#featured" class="icon-btn" id="searchIconBtn">
+
+                    <i class="fas fa-search"></i>
+
+                </a>
+
+                <a href="wishlist.html" class="icon-btn">
+
+                    <i class="far fa-heart"></i>
+
+                    <span class="badge">0</span>
+
+                </a>
+
+                <a href="cart.html" class="icon-btn">
+
+                    <i class="fas fa-shopping-cart"></i>
+
+                    <span class="badge">0</span>
+
+                </a>
+
+                <a href="orders.html" class="icon-btn" id="ordersBtn" style="display:none;" title="My Orders">
+                    <i class="fa-solid fa-receipt"></i>
+                </a>
+
+                <a href="login.html" class="icon-btn" id="accountBtn">
+                    <i class="fa-solid fa-user"></i>
+                </a>
+
+                <button class="icon-btn" id="darkMode">
+
+                    <i class="fa-regular fa-moon"></i>
+
+                </button>
+
+                <button class="menu-btn">
+
+                    <i class="fas fa-bars"></i>
+
+                </button>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+    <!-- Hero -->
+
+    <section class="hero">
+
+        <div class="container hero-content">
+
+            <span class="hero-tag">
+
+                NEW 2026 COLLECTION
+
+            </span>
+
+            <h1>
+
+                STYLE THAT FITS YOUR DAY
+
+            </h1>
+
+            <p>
+
+                Everyday men's essentials — t-shirts, shirts, jeans, and jackets built for comfort and made to last.
+
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#featured" class="btn btn-primary">
+
+                    Shop Now
+
+                </a>
+
+                <a href="#categories" class="btn btn-secondary">
+
+                    Explore Categories
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Banner Grid -->
+
+    <section class="banner-grid">
+        <div class="container banner-grid-inner">
+            <a href="#featured" class="banner-card banner-card--large" onclick="jumpToCategory('T-Shirts')">
+                <span class="banner-eyebrow">T-Shirts &amp; Casual Shirts</span>
+                <span class="banner-title">Shop Tops</span>
+            </a>
+            <div class="banner-card-stack">
+                <a href="#featured" class="banner-card" onclick="jumpToCategory('Jackets & Hoodies')">
+                    <span class="banner-eyebrow">New Arrivals</span>
+                    <span class="banner-title">Jackets &amp; Hoodies</span>
+                </a>
+                <a href="#featured" class="banner-card" onclick="jumpToCategory('Accessories')">
+                    <span class="banner-eyebrow">Finishing Touches</span>
+                    <span class="banner-title">Accessories</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories -->
+
+    <section class="categories" id="categories">
+
+        <div class="container">
+
+            <h2 class="section-title">
+
+                Shop By Category
+
+            </h2>
+
+            <div class="showcase-grid">
+
+                <div class="showcase-block">
+                    <div class="showcase-head">
+                        <div>
+                            <h3>T-Shirts &amp; Casual Shirts</h3>
+                            <span class="showcase-count">120+ items</span>
+                        </div>
+                        <a href="#featured" class="showcase-all" onclick="jumpToCategory('T-Shirts')">View All</a>
+                    </div>
+                    <div class="showcase-tags">
+                        <a href="#featured" onclick="jumpToCategory('T-Shirts')">Crew Neck</a>
+                        <a href="#featured" onclick="jumpToCategory('T-Shirts')">Polo Shirts</a>
+                        <a href="#featured" onclick="jumpToCategory('Shirts')">Button-Downs</a>
+                    </div>
+                </div>
+
+                <div class="showcase-block">
+                    <div class="showcase-head">
+                        <div>
+                            <h3>Jeans &amp; Pants</h3>
+                            <span class="showcase-count">40+ items</span>
+                        </div>
+                        <a href="#featured" class="showcase-all" onclick="jumpToCategory('Pants')">View All</a>
+                    </div>
+                    <div class="showcase-tags">
+                        <a href="#featured" onclick="jumpToCategory('Pants')">Slim Fit</a>
+                        <a href="#featured" onclick="jumpToCategory('Pants')">Chinos</a>
+                    </div>
+                </div>
+
+                <div class="showcase-block">
+                    <div class="showcase-head">
+                        <div>
+                            <h3>Jackets &amp; Hoodies</h3>
+                            <span class="showcase-count">35+ items</span>
+                        </div>
+                        <a href="#featured" class="showcase-all" onclick="jumpToCategory('Jackets & Hoodies')">View All</a>
+                    </div>
+                    <div class="showcase-tags">
+                        <a href="#featured" onclick="jumpToCategory('Jackets & Hoodies')">Bomber Jackets</a>
+                        <a href="#featured" onclick="jumpToCategory('Jackets & Hoodies')">Pullover Hoodies</a>
+                    </div>
+                </div>
+
+                <div class="showcase-block">
+                    <div class="showcase-head">
+                        <div>
+                            <h3>Casual Shoes</h3>
+                            <span class="showcase-count">25+ items</span>
+                        </div>
+                        <a href="#featured" class="showcase-all" onclick="jumpToCategory('Casual Shoes')">View All</a>
+                    </div>
+                    <div class="showcase-tags">
+                        <a href="#featured" onclick="jumpToCategory('Casual Shoes')">Sneakers</a>
+                        <a href="#featured" onclick="jumpToCategory('Casual Shoes')">Desert Boots</a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Featured Products -->
+
+    <section class="featured" id="featured">
+        <div class="container">
+            <h2 class="section-title">
+                Featured Products
+            </h2>
+            <div class="search-box">
+                <input
+                type="text"
+                id="search"
+                placeholder="Search products...">
+            </div>
+            <div class="filter-bar">
+                <select id="categoryFilter">
+                    <option value="">All Categories</option>
+                    <option>T-Shirts</option>
+                    <option>Shirts</option>
+                    <option>Pants</option>
+                    <option>Jackets & Hoodies</option>
+                    <option>Casual Shoes</option>
+                </select>
+                <select id="teamFilter">
+                    <option value="">All Brands</option>
+                    <option>Urban Basics</option>
+                    <option>Northline</option>
+                    <option>Heritage Co.</option>
+                </select>
+                <select id="priceFilter">
+                    <option value="">Any Price</option>
+                    <option value="600">Below 600 EGP</option>
+                    <option value="1000">Below 1000 EGP</option>
+                    <option value="1500">Below 1500 EGP</option>
+                </select>
+                <select id="sortProducts">
+                    <option value="">Sort Products</option>
+                    <option value="low">Price Low → High</option>
+                    <option value="high">Price High → Low</option>
+                    <option value="name">Name A → Z</option>
+                </select>
+            </div>
+            <div class="products-grid" id="products">
+            </div>
+        </div>
+    </section>
+
+    <!-- Shop by Style -->
+
+    <section class="teams" id="teams">
+
+        <div class="container">
+
+            <h2 class="section-title">
+
+                Shop By Style
+
+            </h2>
+
+            <div class="team-grid">
+
+                <div>👕 Casual</div>
+
+                <div>🧥 Streetwear</div>
+
+                <div>👔 Smart Casual</div>
+
+                <div>🩳 Athleisure</div>
+
+                <div>🧵 Basics</div>
+
+                <div>🧢 Accessories</div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Why Choose Us -->
+
+    <section class="features">
+
+        <div class="container">
+
+            <div class="feature">
+
+                <i class="fas fa-truck-fast"></i>
+
+                <h3>Fast Shipping</h3>
+
+            </div>
+
+            <div class="feature">
+
+                <i class="fas fa-shield-halved"></i>
+
+                <h3>Secure Payment</h3>
+
+            </div>
+
+            <div class="feature">
+
+                <i class="fas fa-medal"></i>
+
+                <h3>Premium Quality</h3>
+
+            </div>
+
+            <div class="feature">
+
+                <i class="fas fa-headset"></i>
+
+                <h3>24/7 Support</h3>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Reviews -->
+
+    <section class="reviews" id="reviews">
+
+        <div class="container">
+
+            <h2 class="section-title">
+
+                Customer Reviews
+
+            </h2>
+
+            <div class="review-slider">
+
+                <div class="review">
+
+                    <span class="stars">⭐⭐⭐⭐⭐</span>
+
+                    <p>
+
+                        Amazing quality and fast delivery.
+
+                    </p>
+
+                    <h4>
+
+                        Mohamed Ali
+
+                    </h4>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Newsletter -->
+
+    <section class="newsletter">
+
+        <div class="container">
+
+            <h2>
+
+                Join Our Newsletter
+
+            </h2>
+
+            <form>
+
+                <input type="email" placeholder="Enter your email">
+
+                <button>
+
+                    Subscribe
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+
+    <footer id="contact">
+
+        <div class="container">
+
+            <div class="footer-grid">
+
+                <div>
+
+                    <h3>
+
+                        3ASHRY STORE
+
+                    </h3>
+
+                    <p>
+
+                        Men's Casual Clothing Store.
+
+                    </p>
+
+                </div>
+
+                <div>
+
+                    <h3>
+
+                        Quick Links
+
+                    </h3>
+
+                    <a href="#">Home</a>
+
+                    <a href="#">Shop</a>
+
+                    <a href="#">About</a>
+
+                    <a href="#">Contact</a>
+
+                </div>
+
+                <div>
+
+                    <h3>
+
+                        Follow Us
+
+                    </h3>
+
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+
+                </div>
+
+            </div>
+
+            <div class="payments">
+                <i class="fa-brands fa-cc-visa"></i>
+                <i class="fa-brands fa-cc-mastercard"></i>
+                <i class="fa-brands fa-paypal"></i>
+                <i class="fa-brands fa-apple-pay"></i>
+            </div>
+
+            <p class="copyright">
+
+                © 2026 3ASHRY STORE. All Rights Reserved.
+
+            </p>
+
+        </div>
+
+    </footer>
+
+    <div id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <div class="modal" id="quickViewModal">
+        <div class="modal-content">
+            <span id="closeModal">&times;</span>
+            <div id="modalProduct"></div>
+        </div>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product Details | 3ASHRY STORE</title>
+<link rel="stylesheet" href="css/variables.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/animations.css">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+<header>
+<nav class="container">
+<a href="index.html" class="logo">
+3ASHRY STORE
+</a>
+</nav>
+</header>
+<section class="product-page">
+<div class="container product-grid">
+<!-- الصور -->
+<div class="gallery">
+<img id="mainImage"
+src="assets/images/egypt.jpg">
+<div class="thumbnails" id="thumbnails">
+<img src="assets/images/egypt.jpg">
+</div>
+</div>
+<!-- البيانات -->
+<div class="details">
+<h1 id="productName">
+Classic Crew Neck T-Shirt
+</h1>
+<div class="rating">
+★★★★★
+<span id="reviewCount">(125 Reviews)</span>
+</div>
+<div class="price">
+<span class="old" id="oldPrice">
+7000 EGP
+</span>
+<span class="new" id="newPrice">
+5000 EGP
+</span>
+</div>
+<div class="stock">
+<i class="fa-solid fa-circle-check"></i>
+Only <span id="stock">
+12
+</span> left in stock
+</div>
+<div class="delivery">
+Expected Delivery:
+<strong id="deliveryDate"></strong>
+</div>
+<div class="live">
+🔥 18 people are viewing this product
+</div>
+<p class="description" id="productDescription">
+Classic Crew Neck T-Shirt by Urban Basics.
+Premium fabric, comfortable everyday fit.
+Part of the 2026 collection.
+</p>
+<h3>
+Choose Size
+</h3>
+<div class="sizes">
+<button>S</button>
+<button>M</button>
+<button>L</button>
+<button>XL</button>
+<button>XXL</button>
+</div>
+<h3>
+Quantity
+</h3>
+<div class="quantity-box">
+<button id="minus">-</button>
+<span id="qty">
+1
+</span>
+<button id="plus">+</button>
+</div>
+<div class="coupon">
+<input
+type="text"
+placeholder="Coupon Code"
+id="coupon">
+<button onclick="applyCoupon()">
+Apply
+</button>
+</div>
+<div class="actions">
+<button class="btn btn-primary" onclick="addToCartFromProductPage()">
+Add To Cart
+</button>
+<button class="wishlist" onclick="addWishlistFromProductPage()">
+❤ Wishlist
+</button>
+</div>
+<div class="share">
+Share:
+<a href="#"><i class="fab fa-facebook"></i></a>
+<a href="#"><i class="fab fa-whatsapp"></i></a>
+<a href="#"><i class="fab fa-x-twitter"></i></a>
+</div>
+</div>
+</div>
+
+<div class="container">
+
+<div class="tabs">
+<button class="tab active">
+Description
+</button>
+<button class="tab">
+Specifications
+</button>
+<button class="tab">
+Reviews
+</button>
+</div>
+<div class="tab-content">
+<div class="content active" id="descriptionTabContent">
+Classic crew neck t-shirt made from premium cotton.
+</div>
+<div class="content">
+100% Polyester
+Breathable Fabric
+Machine Washable
+</div>
+<div class="content" id="reviewsTabContent">
+
+<div id="reviewsList">
+<div class="review-box">No reviews yet. Be the first!</div>
+</div>
+
+<h3 style="margin-top:30px;">Write a Review</h3>
+<form id="reviewForm">
+<div class="rating" style="margin-bottom:15px;">
+<select id="reviewRating" required>
+<option value="">Rating</option>
+<option value="5">★★★★★ (5)</option>
+<option value="4">★★★★☆ (4)</option>
+<option value="3">★★★☆☆ (3)</option>
+<option value="2">★★☆☆☆ (2)</option>
+<option value="1">★☆☆☆☆ (1)</option>
+</select>
+</div>
+<textarea id="reviewComment" placeholder="Share your thoughts about this product..." required
+style="width:100%;padding:15px;border-radius:10px;border:2px solid #ddd;font-family:inherit;min-height:100px;margin-bottom:15px;"></textarea>
+<button type="submit" class="btn btn-primary">Submit Review</button>
+</form>
+
+</div>
+</div>
+
+</div>
+</section>
+
+<section class="related" id="recentlyViewedSection" style="display:none;">
+<div class="container">
+<h2 class="section-title">
+Recently Viewed
+</h2>
+<div class="products-grid" id="recentlyViewedGrid">
+</div>
+</div>
+</section>
+
+<section class="related">
+<div class="container">
+<h2 class="section-title">
+Related Products
+</h2>
+<div class="products-grid">
+</div>
+<!-- نفس كروت المنتجات الموجودة في الصفحة الرئيسية -->
+</div>
+</div>
+</section>
+
+<div class="floating-cart">
+<i class="fa-solid fa-cart-shopping"></i>
+<span id="cartCount">
+0
+</span>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/product.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+:root{
+--primary:#0B3D2E;
+--primary-dark:#07281E;
+--secondary:#CE1126;
+--gold:#D4A017;
+--white:#ffffff;
+--black:#141414;
+--gray:#666666;
+--light:#f7f7f7;
+--border:#e6e6e6;
+--shadow:0 10px 30px rgba(0,0,0,.08);
+--transition:.35s;
+--radius:15px;
+--container:1300px;
+}

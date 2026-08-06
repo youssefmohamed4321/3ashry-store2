@@ -68,6 +68,15 @@ function renderProduct(){
 
     const thumbnails = document.getElementById("thumbnails");
     thumbnails.innerHTML = `<img src="${product.image}" onerror="this.onerror=null;this.src=imgPlaceholder('${product.team}')">`;
+
+    const pageUrl = encodeURIComponent(window.location.href);
+    const shareText = encodeURIComponent(`Check out ${product.name} on 3ASHRY STORE`);
+    const fbLink = document.getElementById("shareFacebook");
+    const waLink = document.getElementById("shareWhatsapp");
+    const twLink = document.getElementById("shareTwitter");
+    if(fbLink) fbLink.href = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
+    if(waLink) waLink.href = `https://wa.me/?text=${shareText}%20${pageUrl}`;
+    if(twLink) twLink.href = `https://twitter.com/intent/tweet?text=${shareText}&url=${pageUrl}`;
 }
 
 function renderRelated(){

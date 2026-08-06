@@ -33,11 +33,20 @@ location.href="login.html";
 
 const accountBtn=document.getElementById("accountBtn");
 const ordersBtn=document.getElementById("ordersBtn");
+const adminBtn=document.getElementById("adminBtn");
 if(accountBtn){
 if(localStorage.getItem("loggedIn")==="true"){
 accountBtn.href="account.html";
 accountBtn.title="My Account";
 if(ordersBtn) ordersBtn.style.display="flex";
+
+try{
+const currentUser=JSON.parse(localStorage.getItem("user")||"null");
+if(adminBtn && currentUser?.role==="admin"){
+adminBtn.style.display="flex";
+}
+}catch(e){}
+
 }else{
 accountBtn.title="Login";
 }

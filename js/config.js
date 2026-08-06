@@ -1,3 +1,2 @@
 // Change this to your deployed backend URL when you host it
-// (e.g. "https://your-app.onrender.com/api")
-const API_URL = "http://localhost:5000/api";
+const API_URL = "https://3ashry-store2-production.up.railway.app/api";

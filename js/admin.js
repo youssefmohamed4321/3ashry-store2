@@ -385,6 +385,47 @@ async function loadCustomers(){
 verifyAdminAccess().then(ok=>{
     if(ok){
         loadProducts();
+        /*======================================
+        SIDEBAR NAVIGATION
+======================================*/
+
+const sidebarItems = document.querySelectorAll(".sidebar li");
+
+const sections = {
+    0: document.querySelector(".cards"),                    // Dashboard
+    1: document.querySelector("h2"),                        // Products
+    2: document.getElementById("ordersTableBody").closest("table"),
+    3: document.getElementById("customersTableBody").closest("table"),
+    4: document.getElementById("revenueCount").closest(".card"),
+    5: null // Settings
+};
+
+sidebarItems.forEach((item, index) => {
+
+    item.style.cursor = "pointer";
+
+    item.addEventListener("click", () => {
+
+        sidebarItems.forEach(li => li.classList.remove("active"));
+        item.classList.add("active");
+
+        if(index === 5){
+            alert("Settings page is coming soon.");
+            return;
+        }
+
+        const section = sections[index];
+
+        if(section){
+            section.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+        }
+
+    });
+
+});
         loadOrders();
         loadCustomers();
     }

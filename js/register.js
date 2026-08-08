@@ -1,34 +1,41 @@
-const form=document.getElementById("registerForm");
-form.addEventListener("submit",async(e)=>{
-e.preventDefault();
+const form = document.getElementById("registerForm");
 
-try{
-const res=await fetch(`${API_URL}/auth/register`,{
-method:"POST",
-headers:{"Content-Type":"application/json"},
-body:JSON.stringify({
-name:name.value,
-email:email.value,
-password:password.value
-})
-});
+form.addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-const data=await res.json();
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
 
-if(!res.ok){
-alert(data.message || "Registration failed");
-return;
-}
+    try {
+        const res = await fetch(`${API_URL}/auth/register`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                name,
+                email,
+                password
+            })
+        });
 
-localStorage.setItem("token",data.token);
-localStorage.setItem("user",JSON.stringify(data.user));
-localStorage.setItem("loggedIn","true");
+        const data = await res.json();
 
-alert("Registration Successful!");
-window.location="index.html";
+        if (!res.ok) {
+            alert(data.message || "Registration failed");
+            return;
+        }
 
-}catch(err){
-alert("Could not reach the server. Is the backend running?");
-console.error(err);
-}
+        localStorage.setItem("token", data.token);
+        localStorage.setItem("user", JSON.stringify(data.user));
+        localStorage.setItem("loggedIn", "true");
+
+        alert("Registration Successful!");
+        window.location = "index.html";
+
+    } catch (err) {
+        alert("Could not reach the server. Is the backend running?");
+        console.error(err);
+    }
 });

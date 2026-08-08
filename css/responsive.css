@@ -12,6 +12,23 @@
     grid-template-columns:repeat(2,1fr);
 }
 
+.product-grid{
+    grid-template-columns:1fr !important;
+    gap:35px !important;
+}
+
+.checkout-grid{
+    grid-template-columns:1fr !important;
+}
+
+.banner-grid-inner{
+    grid-template-columns:1fr !important;
+}
+
+.banner-card--large{
+    min-height:260px !important;
+}
+
 }
 
 @media(max-width:768px){
@@ -67,6 +84,65 @@
     font-size:34px;
 }
 
+.nav-icons{
+    gap:8px !important;
+}
+
+.icon-btn{
+    width:38px !important;
+    height:38px !important;
+    font-size:14px;
+}
+
+.cart-item{
+    flex-wrap:wrap;
+}
+
+.cart-item img{
+    width:100px !important;
+    height:100px !important;
+}
+
+.remove{
+    margin-top:12px;
+}
+
+.gallery #mainImage{
+    height:300px !important;
+}
+
+table{
+    display:block;
+    overflow-x:auto;
+    white-space:nowrap;
+    -webkit-overflow-scrolling:touch;
+}
+
+.dashboard{
+    flex-direction:column;
+}
+
+.sidebar{
+    width:100% !important;
+    padding:15px !important;
+}
+
+.sidebar ul{
+    display:flex;
+    overflow-x:auto;
+    gap:10px;
+    -webkit-overflow-scrolling:touch;
+}
+
+.sidebar li{
+    white-space:nowrap;
+    margin:0 !important;
+}
+
+.main{
+    padding:20px !important;
+}
+
 }
 
 @media(max-width:480px){
@@ -93,6 +169,32 @@
 
 .new{
     font-size:22px;
+}
+
+.nav-icons{
+    gap:5px !important;
+}
+
+.icon-btn{
+    width:34px !important;
+    height:34px !important;
+}
+
+.product-buttons{
+    flex-wrap:wrap;
+}
+
+.gallery #mainImage{
+    height:230px !important;
+}
+
+.sizes button{
+    width:44px !important;
+    height:44px !important;
+}
+
+#productModalOverlay > div{
+    padding:20px !important;
 }
 
 }

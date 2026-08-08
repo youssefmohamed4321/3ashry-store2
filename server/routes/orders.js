@@ -45,7 +45,8 @@ router.post("/", auth, async (req,res)=>{
                     product: dbProduct._id,
                     name: dbProduct.name,
                     quantity,
-                    price: dbProduct.price
+                    price: dbProduct.price,
+                    size: item.size || null
                 });
             }
 

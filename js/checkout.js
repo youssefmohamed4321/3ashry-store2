@@ -60,7 +60,7 @@ total += p.price * item.quantity;
 items.innerHTML += `
 <div class="checkout-item">
 <span>
-${p.name}
+${p.name}${item.size ? " (" + item.size + ")" : ""}
 x${item.quantity}
 </span>
 <span>
@@ -107,7 +107,8 @@ products: cart.map(item=>({
 product:item.product._id,
 name:item.product.name,
 quantity:item.quantity,
-price:item.product.price
+price:item.product.price,
+size:item.size || null
 })),
 total,
 paymentMethod,

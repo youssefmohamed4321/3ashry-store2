@@ -175,85 +175,95 @@ async function deleteProduct(id){
     }
 }
 
-async function editProduct(id){
-    const product = products.find(p=>p._id===id);
-    if(!product) return;
+/*======================================
+        ADD / EDIT PRODUCT MODAL
+======================================*/
 
-    const name = prompt("Product Name", product.name);
-    if(name === null) return;
-    const price = prompt("Price", product.price);
-    if(price === null) return;
-    const stock = prompt("Stock", product.stock);
-    if(stock === null) return;
-    const category = prompt("Category", product.category || "");
-    if(category === null) return;
-    const description = prompt("Description", product.description || "");
-    if(description === null) return;
-    const currentImage = (product.images && product.images[0]) || "";
-    const image = prompt("Image URL (paste a link to a photo)", currentImage);
-    if(image === null) return;
+const productModalOverlay = document.getElementById("productModalOverlay");
+const productModalForm = document.getElementById("productModalForm");
 
-    try{
-        const res=await fetch(`${API_URL}/products/${id}`,{
-            method:"PUT",
-            headers:authHeaders(),
-            body:JSON.stringify({
-                name,
-                price:Number(price),
-                stock:Number(stock),
-                category,
-                description,
-                images:image ? [image] : []
-            })
-        });
-        if(!res.ok){
-            const data=await res.json();
-            alert(data.message || "Update failed");
-            return;
-        }
-        await loadProducts();
-    }catch(err){
-        alert("Could not reach the server.");
-        console.error(err);
-    }
+function openProductModal(product){
+    document.getElementById("productModalTitle").textContent = product ? "Edit Product" : "Add Product";
+    document.getElementById("pmId").value = product ? product._id : "";
+    document.getElementById("pmName").value = product ? product.name : "";
+    document.getElementById("pmDescription").value = product ? (product.description || "") : "";
+    document.getElementById("pmPrice").value = product ? product.price : "";
+    document.getElementById("pmStock").value = product ? product.stock : 0;
+    document.getElementById("pmCategory").value = product?.category || "T-Shirts";
+    document.getElementById("pmTeam").value = product?.team || "Urban Basics";
+    document.getElementById("pmImage").value = (product?.images && product.images[0]) || "";
+
+    document.querySelectorAll(".pmSize").forEach(cb=>{
+        cb.checked = !!(product?.sizes || []).includes(cb.value);
+    });
+
+    productModalOverlay.style.display = "flex";
 }
 
-document.getElementById("addProduct").onclick=async()=>{
-    const name = prompt("Product name?");
-    if(!name) return;
-    const price = prompt("Price (EGP)?");
-    if(price === null) return;
-    const category = prompt("Category?", "Uncategorized");
-    if(category === null) return;
-    const description = prompt("Description? (optional)", "");
-    if(description === null) return;
-    const image = prompt("Image URL (paste a link to a photo, or leave blank)");
-    if(image === null) return;
+function closeProductModal(){
+    productModalOverlay.style.display = "none";
+}
+
+function editProduct(id){
+    const product = products.find(p=>p._id===id);
+    if(!product) return;
+    openProductModal(product);
+}
+
+document.getElementById("addProduct").onclick = () => openProductModal(null);
+
+productModalForm.addEventListener("submit", async (e)=>{
+    e.preventDefault();
+
+    const id = document.getElementById("pmId").value;
+    const name = document.getElementById("pmName").value.trim();
+    const description = document.getElementById("pmDescription").value.trim();
+    const price = Number(document.getElementById("pmPrice").value) || 0;
+    const stock = Number(document.getElementById("pmStock").value) || 0;
+    const category = document.getElementById("pmCategory").value;
+    const team = document.getElementById("pmTeam").value;
+    const image = document.getElementById("pmImage").value.trim();
+    const sizes = Array.from(document.querySelectorAll(".pmSize:checked")).map(cb=>cb.value);
+
+    if(!name){
+        alert("Product name is required");
+        return;
+    }
+
+    const payload = {
+        name,
+        description,
+        price,
+        stock,
+        category,
+        team,
+        sizes,
+        images: image ? [image] : []
+    };
 
     try{
-        const res=await fetch(`${API_URL}/products`,{
-            method:"POST",
-            headers:authHeaders(),
-            body:JSON.stringify({
-                name,
-                price:Number(price)||0,
-                stock:0,
-                category,
-                description,
-                images:image ? [image] : []
-            })
-        });
+        const res = await fetch(
+            id ? `${API_URL}/products/${id}` : `${API_URL}/products`,
+            {
+                method: id ? "PUT" : "POST",
+                headers: authHeaders(),
+                body: JSON.stringify(payload)
+            }
+        );
+
         if(!res.ok){
-            const data=await res.json();
-            alert(data.message || "Create failed");
+            const data = await res.json();
+            alert(data.message || "Save failed");
             return;
         }
+
+        closeProductModal();
         await loadProducts();
     }catch(err){
         alert("Could not reach the server.");
         console.error(err);
     }
-};
+});
 
 /*======================================
         ORDERS
@@ -387,5 +397,94 @@ verifyAdminAccess().then(ok=>{
         loadProducts();
         loadOrders();
         loadCustomers();
+    }
+});
+
+/*======================================
+        SIDEBAR NAVIGATION
+======================================*/
+
+const navPanels = {
+    navDashboard: "panel-dashboard",
+    navProducts: "panel-products",
+    navOrders: "panel-orders",
+    navCustomers: "panel-customers",
+    navAnalytics: "panel-analytics",
+    navSettings: "panel-settings"
+};
+
+function showPanel(navId){
+    Object.entries(navPanels).forEach(([nav, panelId])=>{
+        document.getElementById(panelId).style.display = (nav === navId) ? "block" : "none";
+        document.getElementById(nav).classList.toggle("active", nav === navId);
+    });
+
+    if(navId === "navAnalytics"){
+        renderAnalytics();
+    }
+}
+
+Object.keys(navPanels).forEach(navId=>{
+    document.getElementById(navId).addEventListener("click", ()=> showPanel(navId));
+});
+
+// Start on the Dashboard tab, everything else hidden
+showPanel("navDashboard");
+
+/*======================================
+        ANALYTICS
+======================================*/
+
+function renderAnalytics(){
+    const lowStockBody = document.getElementById("lowStockTableBody");
+    const bestSellersBody = document.getElementById("bestSellersTableBody");
+
+    const lowStock = products.filter(p => (p.stock ?? 0) <= 5).sort((a,b)=> a.stock - b.stock);
+    lowStockBody.innerHTML = lowStock.length
+        ? lowStock.map(p => `<tr><td>${p.name}</td><td>${p.stock}</td></tr>`).join("")
+        : `<tr><td colspan="2">All products are well stocked.</td></tr>`;
+
+    const soldCounts = {};
+    orders.forEach(order=>{
+        (order.products || []).forEach(line=>{
+            const key = line.name || "Unknown product";
+            soldCounts[key] = (soldCounts[key] || 0) + (line.quantity || 0);
+        });
+    });
+
+    const bestSellers = Object.entries(soldCounts).sort((a,b)=> b[1] - a[1]).slice(0, 10);
+    bestSellersBody.innerHTML = bestSellers.length
+        ? bestSellers.map(([name, qty]) => `<tr><td>${name}</td><td>${qty}</td></tr>`).join("")
+        : `<tr><td colspan="2">No sales yet.</td></tr>`;
+}
+
+/*======================================
+        SETTINGS — CHANGE PASSWORD
+======================================*/
+
+document.getElementById("changePasswordForm").addEventListener("submit", async (e)=>{
+    e.preventDefault();
+
+    const currentPassword = document.getElementById("currentPassword").value;
+    const newPassword = document.getElementById("newPassword").value;
+
+    try{
+        const res = await fetch(`${API_URL}/users/password`,{
+            method:"PUT",
+            headers: authHeaders(),
+            body: JSON.stringify({ currentPassword, newPassword })
+        });
+        const data = await res.json();
+
+        if(!res.ok){
+            alert(data.message || "Could not update password");
+            return;
+        }
+
+        alert("Password updated successfully.");
+        document.getElementById("changePasswordForm").reset();
+    }catch(err){
+        alert("Could not reach the server.");
+        console.error(err);
     }
 });

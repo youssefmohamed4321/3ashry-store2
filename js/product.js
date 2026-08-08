@@ -25,7 +25,8 @@ function normalizeProduct(p){
         description: p.description || "",
         image: (p.images && p.images[0]) || "",
         badge: p.badge || "",
-        reviews: p.reviews || []
+        reviews: p.reviews || [],
+        sizes: p.sizes || []
     };
 }
 
@@ -77,6 +78,33 @@ function renderProduct(){
     if(fbLink) fbLink.href = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
     if(waLink) waLink.href = `https://wa.me/?text=${shareText}%20${pageUrl}`;
     if(twLink) twLink.href = `https://twitter.com/intent/tweet?text=${shareText}&url=${pageUrl}`;
+
+    renderSizes();
+}
+
+let selectedSize = null;
+
+function renderSizes(){
+    const sizesBox = document.querySelector(".sizes");
+    if(!sizesBox) return;
+
+    selectedSize = null;
+
+    if(!product.sizes || product.sizes.length === 0){
+        sizesBox.innerHTML = `<p style="opacity:.7;">One size fits all</p>`;
+        return;
+    }
+
+    sizesBox.innerHTML = product.sizes.map(s =>
+        `<button type="button" class="size-btn" onclick="selectSize('${s}')">${s}</button>`
+    ).join("");
+}
+
+function selectSize(size){
+    selectedSize = size;
+    document.querySelectorAll(".size-btn").forEach(btn=>{
+        btn.classList.toggle("active", btn.textContent.trim() === size);
+    });
 }
 
 function renderRelated(){
@@ -238,6 +266,11 @@ async function addToCartFromProductPage(){
         return;
     }
 
+    if(product.sizes && product.sizes.length > 0 && !selectedSize){
+        alert("Please choose a size first");
+        return;
+    }
+
     try{
         await fetch(`${API_URL}/users/cart`,{
             method:"POST",
@@ -245,7 +278,7 @@ async function addToCartFromProductPage(){
                 "Content-Type":"application/json",
                 "Authorization":"Bearer "+token
             },
-            body: JSON.stringify({ productId: product.id, quantity: qty })
+            body: JSON.stringify({ productId: product.id, quantity: qty, size: selectedSize })
         });
         updateFloatingCart();
     }catch(err){

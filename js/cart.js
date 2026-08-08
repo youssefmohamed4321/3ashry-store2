@@ -50,18 +50,18 @@ cartContainer.innerHTML+=`
 <img src="${(p.images && p.images[0]) || ""}" alt="${p.name}" onerror="this.style.display='none'">
 <div class="cart-info">
 <h3>${p.name}</h3>
-<p>${p.team || ""}</p>
+<p>${p.team || ""}${item.size ? " • Size: " + item.size : ""}</p>
 <div class="cart-price">
 ${p.price} EGP
 </div>
 <div class="quantity">
-<button onclick="changeQty('${p._id}',${item.quantity - 1})">-</button>
+<button onclick="changeQty('${item._id}',${item.quantity - 1})">-</button>
 <span>${item.quantity}</span>
-<button onclick="changeQty('${p._id}',${item.quantity + 1})">+</button>
+<button onclick="changeQty('${item._id}',${item.quantity + 1})">+</button>
 </div>
 </div>
 <button class="remove"
-onclick="removeItem('${p._id}')">
+onclick="removeItem('${item._id}')">
 Remove
 </button>
 </div>

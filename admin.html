@@ -17,27 +17,27 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 <div class="sidebar">
 <h2>3ASHRY</h2>
 <ul>
-<li class="active">
+<li class="active" id="navDashboard">
 <i class="fa fa-home"></i>
 Dashboard
 </li>
-<li>
+<li id="navProducts">
 <i class="fa fa-box"></i>
 Products
 </li>
-<li>
+<li id="navOrders">
 <i class="fa fa-cart-shopping"></i>
 Orders
 </li>
-<li>
+<li id="navCustomers">
 <i class="fa fa-users"></i>
 Customers
 </li>
-<li>
+<li id="navAnalytics">
 <i class="fa fa-chart-line"></i>
 Analytics
 </li>
-<li>
+<li id="navSettings">
 <i class="fa fa-gear"></i>
 Settings
 </li>
@@ -45,6 +45,7 @@ Settings
 </div>
 <!-- Main -->
 <div class="main">
+<div id="panel-dashboard">
 <h1>
 Dashboard
 </h1>
@@ -74,7 +75,9 @@ Dashboard
 </h1>
 </div>
 </div>
+</div>
 
+<div id="panel-products">
 <h2>
 Products
 </h2>
@@ -96,7 +99,9 @@ Products
 </table>
 
 <input type="file" id="imageFileInput" accept="image/*" style="display:none;">
+</div>
 
+<div id="panel-orders">
 <h2 style="margin-top:60px;">
 Orders
 </h2>
@@ -114,7 +119,9 @@ Orders
 <tbody id="ordersTableBody">
 </tbody>
 </table>
+</div>
 
+<div id="panel-customers">
 <h2 style="margin-top:60px;">
 Customers
 </h2>
@@ -130,9 +137,108 @@ Customers
 <tbody id="customersTableBody">
 </tbody>
 </table>
+</div>
+
+<div id="panel-analytics">
+<h2 style="margin-top:60px;">
+Analytics
+</h2>
+<h3 style="margin-top:20px;">Low Stock Products (5 or fewer left)</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Stock</th>
+</tr>
+</thead>
+<tbody id="lowStockTableBody">
+</tbody>
+</table>
+
+<h3 style="margin-top:40px;">Best Selling Products</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Units Sold</th>
+</tr>
+</thead>
+<tbody id="bestSellersTableBody">
+</tbody>
+</table>
+</div>
+
+<div id="panel-settings">
+<h2 style="margin-top:60px;">
+Settings
+</h2>
+<h3 style="margin-top:20px;">Change Admin Password</h3>
+<form id="changePasswordForm" style="max-width:360px;margin-top:15px;">
+<label>Current Password</label>
+<input type="password" id="currentPassword" required style="width:100%;padding:10px;margin:6px 0 14px;">
+<label>New Password</label>
+<input type="password" id="newPassword" required minlength="6" style="width:100%;padding:10px;margin:6px 0 14px;">
+<button type="submit" class="btn btn-primary" style="padding:10px 20px;">Update Password</button>
+</form>
+</div>
 
 </div>
 </div>
+
+<div id="productModalOverlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:999;align-items:center;justify-content:center;">
+<div style="background:white;border-radius:10px;padding:30px;max-width:480px;width:90%;max-height:85vh;overflow-y:auto;">
+<h2 id="productModalTitle" style="margin-bottom:20px;">Add Product</h2>
+<form id="productModalForm">
+<input type="hidden" id="pmId">
+
+<label>Product Name</label>
+<input type="text" id="pmName" required style="width:100%;padding:10px;margin:6px 0 14px;">
+
+<label>Description</label>
+<textarea id="pmDescription" rows="3" style="width:100%;padding:10px;margin:6px 0 14px;"></textarea>
+
+<label>Price (EGP)</label>
+<input type="number" id="pmPrice" required min="0" style="width:100%;padding:10px;margin:6px 0 14px;">
+
+<label>Stock</label>
+<input type="number" id="pmStock" min="0" style="width:100%;padding:10px;margin:6px 0 14px;">
+
+<label>Category</label>
+<select id="pmCategory" style="width:100%;padding:10px;margin:6px 0 14px;">
+<option value="T-Shirts">T-Shirts</option>
+<option value="Shirts">Shirts</option>
+<option value="Pants">Pants</option>
+<option value="Jackets & Hoodies">Jackets & Hoodies</option>
+<option value="Casual Shoes">Casual Shoes</option>
+</select>
+
+<label>Brand</label>
+<select id="pmTeam" style="width:100%;padding:10px;margin:6px 0 14px;">
+<option value="Urban Basics">Urban Basics</option>
+<option value="Northline">Northline</option>
+<option value="Heritage Co.">Heritage Co.</option>
+</select>
+
+<label>Available Sizes</label>
+<div style="display:flex;gap:10px;margin:6px 0 14px;flex-wrap:wrap;">
+<label><input type="checkbox" value="S" class="pmSize"> S</label>
+<label><input type="checkbox" value="M" class="pmSize"> M</label>
+<label><input type="checkbox" value="L" class="pmSize"> L</label>
+<label><input type="checkbox" value="XL" class="pmSize"> XL</label>
+<label><input type="checkbox" value="XXL" class="pmSize"> XXL</label>
+</div>
+
+<label>Image URL (optional — you can also use "Upload Image" from the table)</label>
+<input type="text" id="pmImage" placeholder="https://..." style="width:100%;padding:10px;margin:6px 0 20px;">
+
+<div style="display:flex;gap:10px;justify-content:flex-end;">
+<button type="button" onclick="closeProductModal()" style="padding:10px 20px;">Cancel</button>
+<button type="submit" class="btn btn-primary" style="padding:10px 20px;">Save</button>
+</div>
+</form>
+</div>
+</div>
+
 <script src="js/config.js"></script>
 <script src="js/admin.js"></script>
 </body>

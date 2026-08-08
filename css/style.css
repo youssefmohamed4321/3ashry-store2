@@ -1452,6 +1452,11 @@ font-weight:bold;
 background:var(--primary);
 color:white;
 }
+.sizes button.active{
+background:var(--primary);
+color:white;
+box-shadow:0 0 0 2px var(--gold);
+}
 .quantity-box{
 display:flex;
 align-items:center;

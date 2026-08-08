@@ -54,7 +54,13 @@ function renderProduct(){
     document.getElementById("productName").innerHTML = product.name;
     document.title = product.name + " | 3ASHRY STORE";
     document.getElementById("reviewCount").innerHTML = `(${(product.rating||5) * 25} Reviews)`;
-    document.getElementById("oldPrice").innerHTML = product.oldPrice + " EGP";
+    const oldPriceEl = document.getElementById("oldPrice");
+    if(product.oldPrice){
+        oldPriceEl.innerHTML = product.oldPrice + " EGP";
+        oldPriceEl.style.display = "";
+    }else{
+        oldPriceEl.style.display = "none";
+    }
     document.getElementById("newPrice").innerHTML = product.price + " EGP";
     document.getElementById("productDescription").innerHTML =
         product.description ||
@@ -126,7 +132,7 @@ function renderRelated(){
                 <h3>${p.name}</h3>
                 <p>${p.team}</p>
                 <div class="price">
-                    <span class="old">${p.oldPrice} EGP</span>
+                    ${p.oldPrice ? `<span class="old">${p.oldPrice} EGP</span>` : ""}
                     <span class="new">${p.price} EGP</span>
                 </div>
                 <div class="product-buttons">
@@ -239,7 +245,7 @@ function renderRecentlyViewed(){
                 <h3>${p.name}</h3>
                 <p>${p.team}</p>
                 <div class="price">
-                    <span class="old">${p.oldPrice} EGP</span>
+                    ${p.oldPrice ? `<span class="old">${p.oldPrice} EGP</span>` : ""}
                     <span class="new">${p.price} EGP</span>
                 </div>
                 <div class="product-buttons">

@@ -116,9 +116,7 @@ productsContainer.innerHTML+=`
 <h3><a href="product.html?id=${product.id}">${product.name}</a></h3>
 <p>${product.team}</p>
 <div class="price">
-<span class="old">
-${product.oldPrice} EGP
-</span>
+${product.oldPrice ? `<span class="old">${product.oldPrice} EGP</span>` : ""}
 <span class="new">
 ${product.price} EGP
 </span>
